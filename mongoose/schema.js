@@ -6,6 +6,8 @@ const vegetableSchema = mongoose.Schema({
     costPrice: Number,
     imported_date: String,
     discount: Number,
+    data: Object,
+    myObj: Object,
 })
 
 module.exports = {

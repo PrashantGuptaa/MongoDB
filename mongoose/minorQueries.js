@@ -4,29 +4,28 @@ const { vegetableSchema } = require("./schema");
 
 const vegetableModel = mongoose.model('vegetables', vegetableSchema );
 
-const findAllWithMongoose = async () => {
+const findAllWithMongooseWithLimitAndSkip = async () => {
     try {
         await connectionWithMongoose();
-        const result = await vegetableModel.find({ name: "Potato"});
+        const result = await vegetableModel.find({ costPrice: 10 }).limit(2).skip(1);
 
-        console.log("Successfully fetched the record", result);
+        console.log("Successfully fetched the record with limit", result);
     } catch (e) {
         console.error("error while inserting record", e);
     }
 }
 
-const findOneWithMongoose = async () => {
+const findAllWithMongooseWithSorting = async () => {
     try {
         await connectionWithMongoose();
-        const result = await vegetableModel.findOne({name: 'Cabbage' });
+        const result = await vegetableModel.find().sort({ name: -1 });
 
-        console.log("Successfully created the record", result);
+        console.log("Successfully fetched the record with limit", result);
     } catch (e) {
         console.error("error while inserting record", e);
     }
 }
-
 module.exports = {
-    findAllWithMongoose,
-    findOneWithMongoose
+    findAllWithMongooseWithLimitAndSkip,
+    findAllWithMongooseWithSorting
 }

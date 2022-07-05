@@ -8,7 +8,7 @@ const insertOneWithMongoose = async () => {
     try {
         await connectionWithMongoose();
         const veg = vegetableModel({
-            name: "ABDE",
+            name: "MMy-Potato",
             sellingPrice: 30,
             costPrice: 10,
             discount: 0,

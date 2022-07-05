@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-const connectionString = "mongodb://127.0.0.1:27017/reliance";
+const connectionString = require("../secret");
 
 const connectionWithMongoose = async () => {
   try {
